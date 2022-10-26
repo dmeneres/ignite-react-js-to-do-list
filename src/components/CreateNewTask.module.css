@@ -1,0 +1,70 @@
+.createNewTaskContainer {
+  display: flex;
+  max-width: 736px;
+  height: 3.375rem;
+  margin: auto;
+  margin-top: -1.6875rem;
+}
+
+@media (max-width: 768px) {
+  .createNewTaskContainer {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .createButton {
+    width: 15%;
+  }
+
+  .createButton p {
+    display: none;
+  }
+
+  .createButton img {
+    margin-right: 4px;
+    height: 1.375rem;
+  }
+}
+
+.taskInput {
+  height: 100%;
+  max-width: 638px;
+  width: 86%;
+  padding: 16px;
+
+  border-radius: 8px;
+  border: 1px solid var(--gray-700);
+  outline: 0;
+
+  background-color: var(--gray-500);
+  color: var(--gray-300);
+}
+
+.createButton {
+  max-width: 90px;
+  width: 16%;
+  height: 100%;
+  margin-left: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--blue-500);
+  color: var(--gray-100);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 8px;
+  
+  transition: 0.2s;
+}
+
+.createButton:hover {
+  background: var(--blue-200);
+}
+
+.createButton img {
+  margin-left: 6px;
+  margin-top: 1px;
+}

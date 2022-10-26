@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  max-width: 736px;
+  margin: auto;
+  margin-top: 64px;
+  margin-bottom: 24px;  
+}
+
+.created {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.finished {
+  display: flex;
+  width: 50%;
+  justify-content: flex-end;
+}
+
+.createdText {
+  color: var(--blue-500);
+  margin-right: 8px;
+}
+
+.finishedText {
+  color: var(--purple-500);
+  margin-right: 8px;
+}
+
+.createdButton,
+.finishedButton {
+  background: var(--gray-400);
+  color: var(--gray-200);
+  border: none;
+  border-radius: 999px;
+  padding: 2px 8px;
+
+  font-weight: 700;
+  font-size: 0.75rem;
+}

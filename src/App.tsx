@@ -1,33 +1,77 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import './global.css'
 import './App.css'
+import { Header } from './components/Header'
+import { CreateNewTask } from './components/CreateNewTask'
+import { useState } from 'react'
+import { TaskHeader } from './components/TaskHeader'
+import { TaskItem } from './components/TaskItem'
+
+interface TaskProps {
+  title: string;
+  isCompleted: boolean;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tasks, setTasks] = useState<TaskProps[]>([])
+
+  function addTask(taskTitle: string) {
+    setTasks([
+      ...tasks,
+      {
+        title: taskTitle,
+        isCompleted: false,
+      }
+    ]);
+  }
+
+  function finishTask(task: string) {
+    const index = tasks.findIndex((e) => e.title === task)
+    const newTasks = [...tasks]
+    if (newTasks[index].isCompleted) {
+      newTasks[index].isCompleted = false;
+    } else {
+      newTasks[index].isCompleted = true;
+    };
+
+    setTasks(newTasks)
+  }
+
+  function deleteTask(task: string) {
+    const index = tasks.findIndex((e) => e.title === task)
+    const newTasks = [...tasks]
+    newTasks.splice(index, 1)
+
+    setTasks(newTasks)
+  }
+
+  function countTasksCreated() {
+    return (
+      tasks.length
+    )
+  }
+
+  function countTasksCompleted() {
+    let count = 0;
+
+    for (let task in tasks) {
+      if (tasks[task].isCompleted === true) {
+        count++
+      }
+    }
+
+    return (count)
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <>
+      <Header />
+      <CreateNewTask onAddTask={addTask} />
+      <TaskHeader tasksCreated={countTasksCreated()} tasksCompleted={countTasksCompleted()} />
+      <div className='tasksContainer'>
+        {tasks.map(item => <TaskItem handleDeleteTask={deleteTask} handleFinishTask={finishTask} key={item.title} task={item.title} isCompleted={item.isCompleted} />)}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+
+    </>
   )
 }
 
