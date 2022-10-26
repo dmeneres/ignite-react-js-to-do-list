@@ -67,9 +67,20 @@ function App() {
       <Header />
       <CreateNewTask onAddTask={addTask} />
       <TaskHeader tasksCreated={countTasksCreated()} tasksCompleted={countTasksCompleted()} />
-      <div className='tasksContainer'>
-        {tasks.map(item => <TaskItem handleDeleteTask={deleteTask} handleFinishTask={finishTask} key={item.title} task={item.title} isCompleted={item.isCompleted} />)}
-      </div>
+
+      {
+        tasks.length === 0 ?
+        <div className='noTasksContainer'>
+          <img src="../src/assets/clipboard.svg"/> 
+          <b>You don't have any tasks</b>
+          <p>Create tasks and organize your todo's</p>
+        </div> :
+        <div className='tasksContainer'>
+          {tasks.map(item => <TaskItem handleDeleteTask={deleteTask} handleFinishTask={finishTask} key={item.title} task={item.title} isCompleted={item.isCompleted} />)}
+        </div>
+      }
+
+
 
     </>
   )
