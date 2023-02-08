@@ -11,7 +11,7 @@
 }
 
 .taskItem input:checked ~ .checkBox {
-  background: url("../src/assets/checked-true_hover-false.svg") no-repeat;
+  background: url("/static/images/checked-true_hover-false.svg") no-repeat;
   transition: 0.2s;
 }
 
@@ -20,30 +20,27 @@
 }
 
 .taskItem input:checked:hover ~ .checkBox {
-  background: url("../src/assets/checked-true_hover-true.svg");
+  background: url("/static/images/checked-true_hover-true.svg");
   transition: 0.2s;
 }
 
 .taskItem input:not(:checked):hover ~ .checkBox {
-  background: url("../src/assets/checked-false_hover-true.svg");
+  background: url("/static/images/checked-false_hover-true.svg");
   transition: 0.2s;
 }
-
 
 .checkInput {
   display: none;
 }
 
-
 .checkBox {
-  background: url('../src/assets/checked-false_hover-false.svg') no-repeat;
+  background: url("/static/images/checked-false_hover-false.svg") no-repeat;
   width: 24px;
   height: 24px;
   border: none;
   display: flex;
   align-items: flex-start;
 }
-
 
 .text {
   margin: 0px 12px;
@@ -55,7 +52,6 @@
   width: 632px;
 }
 
-
 .textDeleted {
   margin: 0px 12px;
 
@@ -64,9 +60,8 @@
   color: var(--gray-300);
 }
 
-
 .delete {
-  background: url("../src/assets/delete_hover-false.svg") no-repeat;
+  background: url("/static/images/delete_hover-false.svg") no-repeat;
   border: none;
   display: flex;
   align-items: flex-start;
@@ -80,6 +75,6 @@
 }
 
 .delete:hover {
-  background: url("../src/assets/delete_hover-true.svg");
-  transition: 0.2s; 
+  background: url("/static/images/delete_hover-true.svg");
+  transition: 0.2s;
 }
